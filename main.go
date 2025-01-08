@@ -1,34 +1,43 @@
 package main
 
-import 	"fmt"
-
+import (
+	"fmt"
+	"time"
+	"sync"
+)
 
 const conferenceTickets = 50
+
 var conferenceName = "Go Conference" // camel casing
 var remainingTickets uint = 50
 var bookings = make([]UserData, 0)
 
 type UserData struct {
 	firstName string
-	lastName string
-	email string
-	tickets uint
+	lastName  string
+	email     string
+	tickets   uint
 }
 
+var wg = sync.WaitGroup{}
+
 func main() {
-	
 
 	greetUsers()
 
 	for {
-		 
+
 		firstName, lasttName, email, userTickets := getUserInput()
 
 		isValidName, isValidEmail, isValidTickets := validateUserInputs(firstName, lasttName, email, userTickets)
 
 		if isValidEmail && isValidName && isValidTickets {
-			
-			bookTickets(firstName, lasttName, email, userTickets)
+
+			userData := bookTickets(firstName, lasttName, email, userTickets)
+
+			wg.Add(1) // add 1 to the wait group
+			go sendTicket(userData)
+			 
 
 			firstNames := getFirstName()
 
@@ -50,6 +59,7 @@ func main() {
 			}
 		}
 	}
+	wg.Wait() // is the last line in the main function before the return statement
 }
 
 func greetUsers() {
@@ -73,8 +83,7 @@ func getFirstName() []string {
 	return firstNames
 }
 
-
-func getUserInput() (string, string, string, uint){
+func getUserInput() (string, string, string, uint) {
 	var firstName string
 	var lasttName string
 	var email string
@@ -95,14 +104,14 @@ func getUserInput() (string, string, string, uint){
 	return firstName, lasttName, email, userTickets
 }
 
-func bookTickets(firstName string, lastName string, email string, userTickets uint) {
+func bookTickets(firstName string, lastName string, email string, userTickets uint) UserData {
 	remainingTickets = remainingTickets - userTickets
 
-	var userData = UserData {
+	var userData = UserData{
 		firstName: firstName,
-		lastName: lastName,
-		email: email,
-		tickets: userTickets,
+		lastName:  lastName,
+		email:     email,
+		tickets:   userTickets,
 	}
 
 	bookings = append(bookings, userData)
@@ -112,4 +121,21 @@ func bookTickets(firstName string, lastName string, email string, userTickets ui
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v \n", firstName, lastName, userTickets, email)
 
 	fmt.Printf("%v tickets remaining, for %v \n", remainingTickets, conferenceName)
+
+	return userData
+}
+
+func sendTicket(userDate UserData) {
+
+	time.Sleep(10 * time.Second)
+
+	var ticket = fmt.Sprintf("%v tickets for %v %v", userDate.tickets, userDate.firstName, userDate.lastName)
+
+	fmt.Println("#### #############")
+
+	fmt.Printf("Sending ticket \n %v to email address \n %v", ticket, userDate.email)
+
+	fmt.Println("#################")
+
+	wg.Done() // remove 1 from the wait group
 }

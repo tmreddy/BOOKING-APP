@@ -404,6 +404,55 @@ type struct {
                 <li>It's like a lightweight class, which e.g. doesn't support inheritance</li>
             </ol>
         </li>
+        <li><strong>Go Routines - Concurrency</strong>
+            <ol>
+                <li>Now let us say generating and sending tickets is a longer task</li>
+                <li>"time" - functinality for time, The sleep function stops or block the current "thread" (goroutine) executing for the defined duration</li>
+                <li>Handle this blocking code with Goroutines</li>
+                <li>By default: Sequential code execution</li>
+                <li>Processing 1 task or 1 code after another</li>
+                <li>Concurrency to make our program more efficient</li>
+                <li>Concurrency in Go is cheap and easy</li>
+                <li>Step by step execution of the code</li>
+                <li>The code afterwards needs to wait until sentTickets finishes</li>
+                <li>Instead of waiting we wanted to start a seperate thread to execute "sentTickes"</li>
+                <li>Main thread doesn't wait for the sendTickets to finish</li>
+                <li>Next line of code is executed immediately </li>
+                <li>To create new thread we just have to add go while calling the function e.g go sentTickets(userData)</li>
+                <li>"go" keyword starts a new goroutine</li>
+                <li>A goroutine is a lightweight thread managed by the Go runtime </li>
+                <li>Generating and sending ticket task runs now in the background</li>
+                <li>now let us remove the for loop to ask for next ticket details, once we remove the for loop application will exit, we will not see the sentTicket output </li>
+                <li>Problem we need to fix</li>
+                <li>main goroutine exited before "sendTicket" had ttime to start and execute the code </li>
+                <li>By default, the main goroutine does NOT wait for other goroutines</li>
+                <li>To fix, we need to tell "main" that is needs to wait until "sendTicket" is done</li>
+                <li>so first we need to create a waitGroup</li>
+                <li>WaitGroup</li>
+                <ol>
+                    <li>Waits for the launched goroutine to finesh</li>
+                    <li>Package "sync" provides basic synchronization functionality</li>
+                    <li>Add: Set the number of goroutines to wait for (increases the counter by the provided number)</li>
+                    <li>Wait: Blocks unit the WaitGroup counter is 0</li>
+                    <li>Done: Decrements the WaitGroup counter by 1 so this is called by the goroutine to indicate that it's finished</li>
+                </ol>
+                <li>main waiting for additional goroutine to finesh </li>
+                <li>In other languages writing concurrent code is more complex</li>
+                <li>more overhead</li>
+                <li>creating threads is more expensive, slow startup time </li>
+                <li>Heavyweight and needs more hardware resources</li>
+                <li>Why? What is the differenct</li>
+                <ol>
+                    <li>Go is using, what's called a "Greem thread"</li>
+                    <li>Green thread is an abstraction of an actual thread called goroutine </li>
+                    <li>Cheaper and lightweight</li>
+                    <li>You can run hundereds of thousands or millions goroutines without effecting the performance </li>
+                    <li>Managed by the go runtime, we are only interacting with these high level goroutines</li>
+                    <li>OS threads are managed by kernel, are hardware dependent, cost of these threads are higher, Higher start up time, have no easy communication between threads (receiving and sending data)  </li>
+                    <li>GoRoutines has a concept of channels a build in functionality for goroutines to talk with one another </li>
+                </ol>
+            </ol>
+        </li>
     </ol>
 </body>
 
