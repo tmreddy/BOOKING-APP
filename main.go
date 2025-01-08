@@ -6,6 +6,7 @@ func main(){
 	var conferenceName = "Go Conference" // camel casing
 	const conferenceTickets = 50
 	var remainingTickets uint= 50
+	var bookings [50]string
 
 	fmt.Printf("confirenceTickets is %T, remainingTickets is %T, conferenceName is %T.\n", conferenceTickets,remainingTickets,conferenceName)
 
@@ -33,6 +34,14 @@ func main(){
 	fmt.Scan(&userTickets)
 
 	remainingTickets = remainingTickets -  userTickets
+	bookings[0] = firstName + " " + lasttName 
+
+	fmt.Printf("Then whole array is %v\n", bookings)
+	fmt.Printf("The first value is %v\n", bookings[0] )
+	fmt.Printf("Array type is %T\n", bookings)
+	fmt.Printf("Array length is %v\n", len(bookings))
+
+
 
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v \n", firstName, lasttName,  userTickets, email )
 
