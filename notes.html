@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: larger;
+            line-height: 1.75;
+            margin-top: 2px;
+            margin-left: 4px;
+            word-spacing: 2px;
+        }
+
+        h1 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Notes</title>
+</head>
+
+<body>
+    <h1>Go Notes from nana course - YouTube</h1>
+    <ol>
+        <li>Install go $ brew install go</li>
+        <li>Install VS code</li>
+        <li>Install Go extension</li>
+        <li>Create new folder booking-app</li>
+        <li>Create new file main.go</li>
+        <li><strong>Go Module</strong>
+            <ol>
+                <li>Create a new module</li>
+                <li>Module path can correspond to a repository you plan to publish your module to e.g.
+                    github.com/tmreddy/booking-app</li>
+                <li>$ go mod init booking-app</li>
+                <li>Initialized a go.mod file</li>
+                <li>Describes the module with tmreddy/module path and go version used in the program </li>
+                <li>The module path is also the import path e.g. github.com/tmreddy/booking-app</li>
+                <li>$ go mod tidy</li>
+            </ol>
+        </li>
+
+        <li>All our code must belong to a package</li>
+        <li>The first statement in Go file must be "package ..."</li>
+        <li>Where to start the program? Where is the entrypoint?</li>
+        <li>The main function is the entrypoint of a Go program</li>
+        <li>A program can only have 1 main function, because you can have 1 entrypoint</li>
+        <li>"fmt" stands for Format package</li>
+        <li><strong>Go Packages</strong></li>
+        <ol>
+            <li>Go programs are organized into packages</li>
+            <li>Go's standard library, provides different core packages for us to use</li>
+            <li>"fmt" is one of these, which you can use by importing it</li>
+            <li>A package is a collection of source files</li>
+        </ol>
+        <li>go run (file_name) = compiles and runs the code</li>
+        <li><strong>Variables and Constants</strong>
+            <ol>
+                <li>Variables are used to store values</li>
+                <li>Like containers for values</li>
+                <li>Give the varaible a name and reference everywhere in the app</li>
+                <li>Benefits: update the value only once</li>
+                <li>Make our app more flexible</li>
+                <li>Variable names should be descriptive</li>
+            </ol>
+        </li>
+        <li><strong>Keywords</strong>
+            <ol>
+                <li>Keywords are reserved words in every language</li>
+                <li>There are 25 keywords in GO language</li>
+                <li>break, default, func, interface, select </li>
+                <li>case, defer, go, map, struct</li>
+                <li>chan, else, goto, pacakge, switch</li>
+                <li>const, failthrough, if, range, type</li>
+                <li>continue, for, import, return, var</li>
+            </ol>
+        </li>
+        <li>Go compile errors to enforce better code quality</li>
+        <li>Variable name must be used: To avoid possible dead code, code that is never used in the code</li>
+        <li>Imported packages must be used: The same applies if you import a package and doesn't use</li>
+        <li>With fmt.Print() automatic spaces are not added when multiple parameters are passed to Print function</li>
+        <li>With fmt.Println() automatic spaces are added when multiple parameters are passed to Println function</li>
+        <li><strong>Constants</strong>
+            <ol>
+                <li>Constants are like variable, except that their values cannot be changed.</li>
+                <li>const keyword is used to declare constants</li>
+                <li>constant variables cannot be changed anywhere in the app</li>
+            </ol>
+        </li>
+        <li><strong>Formating output</strong>
+            <ol>
+                <li>Print formatted data</li>
+                <li>fmt.printf("some test with a variable %s", myVariable)</li>
+                <li>It takes a template string that contains the text that needed to be formatted</li>
+                <li>Plus some annotation verbs (or placeholders) that tell the fmt functions how to format the variable
+                    passed in</li>
+                <li>With fmt.Printf() we need to add new line at the end of the print statement \n</li>
+            </ol>
+        </li>
+        <li>// is for comment</li>
+        <li><strong>Data Types in Go</strong>
+            <ol>
+                <li>In any programming languages you have multiple data types</li>
+                <li>Difference: which data types do they supprt exactly?</li>
+                <li>Strings, Booleans, Arrays, Integers, Maps</li>
+                <li>2 Basic Data types string, integers</li>
+                <li>For textual data, defined with double quotes. e.g. "this is a string"</li>
+                <li>Representing whole numbers, positive and negative. e.g. 5, 120 , -20</li>
+                <li>There are many more numeric data types!</li>
+                <li>Each data type can do different things and behaves differently </li>
+                <li>Go is a statically typed languages: You need to tell Go compiler, the data type when declaring the
+                    variable </li>
+                <li>Type Interence: But, Go can infer the type when you assign a value</li>
+                <li>Make your code more robust, reduce the likelihood of errors</li>
+                <li>Helps developers to catch type mismatchs sooner (at compile time)</li>
+                <li>To declare a variable with datatype syntax is var variablename datatype</li>
+                <li>Dicover mistakes at compile time, NOT at runtime</li>
+                <li>%v is for variable, %T is for TYPE of the variable is</li>
+                <li>We have different int types </li>
+                <ol>
+                    <li>uint8 - unsigned 8-bit integers (0 to 255)</li>
+                    <li>uint16 - unsigned 16-bit integers (0 to 65535)</li>
+                    <li>uint32 - unsigned 32-bit integers (0 to 4294967295)</li>
+                    <li>uint64 - unsigned 64-bit integers (0 to 18446.....)</li>
+                    <li>int8 - unsigned 8-bit integers (-128 to 127)</li>
+                    <li>int16 - unsigned 16-bit integers (-32768 to 32787)</li>
+                    <li>int34 - unsigned 34-bit integers (-128 to 127)</li>
+                    <li>int64 - unsigned 64-bit integers (-128 to 127)</li>
+                    <li>float32</li>
+                    <li>float64</li>
+                    <li>complex64</li>
+                    <li>complex128</li>
+                    <li>uint doesn't allow remainingTicket to go -ve</li>
+                </ol>
+            </ol>
+        </li>
+        <li><strong>"Syntatic Sugar" in Programming</strong>
+            <ol>
+                <li>A term to describe a feature in a language that let's your do smth more easily</li>
+                <li>Makes the language "sweeter" for human use</li>
+                <li>But does't add any new functioality that it didn't already have</li>
+                <li>With suger cotated syntax := we cannot declare constants, and also doesn't apply if you want to
+                    explicitly apply type </li>
+                <li>with this syntax we cannot declare constants </li>
+            </ol>
+
+        </li>
+        <li><strong>Getting User Input</strong>
+            <ol>
+                <li>fmt package had Different functions for formatted Input and OutPut(I/O)</li>
+                <li>Print Messages</li>
+                <li>Collect User Input</li>
+                <li>Write into a file</li>
+                <li>fmt.Scan(&userName) waits for the user to input the name </li>
+                <li>Scan function can now assign the user's value to the userName variable</li>
+                <li>Because it has a pointer to its memory address, passing the reference </li>
+            </ol>
+        </li>
+        <li><strong>What is a pointer?</strong>
+        <ol>
+            <li>A pointer is a variable that points to the memory address of another variable </li>
+            <li>A special variables</li>
+            <li></li>
+            <li></li>
+        </ol>
+        </li>
+
+
+        <li>In java script the order of declaration and usage does't matter, in GO it matters we can use a variable
+            before declartion.</li>
+    </ol>
+</body>
+
+</html>
