@@ -352,6 +352,33 @@
             <li>Variable scope = Scope in the region of a program, where a defined variable can be accessed</li>
         </ol>
         </li>
+        <li><strong>Maps in Go</strong>
+            <ol>
+                <li>Maps: Maps unique keys to values</li>
+                <li>You can retrieve the value by using its key later</li>
+                <li>e.g 
+                    firstName: mreddy
+                    lastName: Tatiparthy
+                    email: tatiparthy.mreddy@gmail.com
+                    tickets: 5 
+                </li>
+                <li>All keys have the same data type</li>
+                <li>All values have the same data type</li>
+                <li>Map creation e.g. var userData = make(map[string]string)</li>
+                <li>To create a map we have a built in function called make</li>
+                <li>Adding values to map e.g. 
+                    userData["firstName"] = firstName
+                    userData["lastName"] = lastName 
+                    userData["email"] = email
+                    userData["tickets"] = strconv.FormatUint(uint64(userTickets), 10)
+                </li>
+                <li>We can not mix data types values in maps</li>
+                <li>For userTickets we need to convert the uint to a string, there is a built in function call strconv.FormatUint(unit64(userTickets, 10)) 10 is for decimal</li>
+                <li>var  bookings = make([]map[string]string, 0)</li>
+                <li>Generating slice with "make", Alternative way to create a slice</li>
+                <li>We need to define the initial size of the slice </li>
+            </ol>
+        </li>
     </ol>
 </body>
 

@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"strconv"
 )
 
 const conferenceTickets = 50
 var conferenceName = "Go Conference" // camel casing
 var remainingTickets uint = 50
-var bookings []string
+var bookings = make([]map[string]string, 0)
 
 func main() {
 	
@@ -62,8 +62,7 @@ func getFirstName() []string {
 	firstNames := []string{}
 
 	for _, booking := range bookings {
-		var names = strings.Fields(booking)
-		firstNames = append(firstNames, names[0])
+		firstNames = append(firstNames, booking["firstName"])
 
 	}
 	return firstNames
@@ -91,12 +90,21 @@ func getUserInput() (string, string, string, uint){
 	return firstName, lasttName, email, userTickets
 }
 
-func bookTickets(firstName string, lasttName string, email string, userTickets uint) {
+func bookTickets(firstName string, lastName string, email string, userTickets uint) {
 	remainingTickets = remainingTickets - userTickets
 
-	bookings = append(bookings, firstName+" "+lasttName)
+	var userData = map[string]string{}
 
-	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v \n", firstName, lasttName, userTickets, email)
+	userData["firstName"] = firstName
+	userData["lastName"] = lastName 
+	userData["email"] = email
+	userData["tickets"] = strconv.FormatUint(uint64(userTickets), 10)
+
+	bookings = append(bookings, userData)
+
+	fmt.Printf("List of booking is %v\n", bookings)
+
+	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v \n", firstName, lastName, userTickets, email)
 
 	fmt.Printf("%v tickets remaining, for %v \n", remainingTickets, conferenceName)
 }
