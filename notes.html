@@ -315,6 +315,33 @@
             <li>Reuse logic and so reducing duplication of code</li>
         </ol>
         </li>
+        <li><strong>Packages in Go</strong>
+        
+            <ol>
+                <li>Until now we worked only with 1 file</li>
+                <li>Can I modularize the application?</li>
+                <li>Application consisting of multiple Go files?</li>
+                <li>Go programs are organized into packages</li>
+                <li>A package is a collection of Go files.</li>
+                <li>Scope Package level: Again Variables and functions defined outside any function, can be accessed in all other files within the same package.</li>
+                <li>Move the validateUserInputs function to new helper.go</li>
+                <li>Now if we compile we will get error saying validateUserInputs function is not defined, to fix this we need to give helper.go file also while running the app. e.g. go run main.go helper.go </li>
+                <li>If we have lot of go files giving all the files is not feasible. alternative is go run .</li>
+            </ol>
+        </li>
+        <li><strong>Multiple Packages</strong>
+        
+            <ol>
+                <li>Organize your app</li>
+                <li>Logically group your code</li>
+                <li>To create new package we need to create a folder, e.g. create helper folder and move the helper.go to this folder. Change the package name from main to helper in helper.go file</li>
+                <li>Exporing a variable: Make it available for all packages in the app </li>
+                <li>Capitalize first letter ValidateUserInput</li>
+                <li>for importing a package just my giving import "helper" doesn't work as go will be looing for this package in its libr ary. Insted we need to give the module name which is present in the go.mod e.g. BOOKIN-APP/helper, this will work</li>
+                <li>To call fuction from another package we need ti give packagename.functionname</li>
+                <li>You can export: variable, functions, constants, types</li>
+            </ol>
+        </li>
     </ol>
 </body>
 

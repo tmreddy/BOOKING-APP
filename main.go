@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"BOOKIN-APP/helper"
 )
 
 const conferenceTickets = 50
@@ -19,7 +20,7 @@ func main() {
 		 
 		firstName, lasttName, email, userTickets := getUserInput()
 
-		isValidName, isValidEmail, isValidTickets := validateUserInputs(firstName, lasttName, email, userTickets)
+		isValidName, isValidEmail, isValidTickets := helper.ValidateUserInputs(firstName, lasttName, email, userTickets, remainingTickets)
 
 		if isValidEmail && isValidName && isValidTickets {
 			
@@ -69,14 +70,6 @@ func getFirstName() []string {
 	return firstNames
 }
 
-func validateUserInputs(firstName string, lastName string, email string, userTickets uint) (bool, bool, bool){
-
-	isValidName := len(firstName) >= 2 && len(lastName) >= 0
-	isValidEmail := strings.Contains(email, "@") && strings.Contains(email, ".")
-	isValidTickets := userTickets > 0 && userTickets <= remainingTickets
-
-	return isValidName, isValidEmail, isValidTickets
-}
 
 func getUserInput() (string, string, string, uint){
 	var firstName string
