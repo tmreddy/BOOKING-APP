@@ -171,21 +171,29 @@
         <li>In java script the order of declaration and usage does't matter, in GO it matters we can use a variable
             before declartion.< /li>
         <li><strong>Arrays & Slices in Go</strong>
-        <ol>
-            <li>We want to store the entered user data in some kind of a list.</li>
-            <li>Who is attending the conference?</li>
-            <li>Who booked the tickets?</li>
-            <li>We have arrays and slices in GO</li>
-            <li>Data structures to store collection of elements in a single variable.</li>
-            <li>Arrays in Go have fixed size (how many elements the array can hold)</li>
-            <li>var variable_name [size] variable_type</li>
-            <li>e.g. var bookings = [50]string {"orange", "banana", "apple "}</li>
-            <li>e.g var bookings [50]string</li>
-            <li>Only the same data type can be stored</li>
-            <li>Adding and accessing elements by their index (position), arrays are index-based</li>
-        </ol>
+            <ol>
+                <li>We want to store the entered user data in some kind of a list.</li>
+                <li>Who is attending the conference?</li>
+                <li>Who booked the tickets?</li>
+                <li>We have arrays and slices in GO</li>
+                <li>Data structures to store collection of elements in a single variable.</li>
+                <li>Arrays in Go have fixed size (how many elements the array can hold)</li>
+                <li>var variable_name [size] variable_type</li>
+                <li>e.g. var bookings = [50]string {"orange", "banana", "apple "}</li>
+                <li>e.g var bookings [50]string</li>
+                <li>Only the same data type can be stored</li>
+                <li>Adding and accessing elements by their index (position), arrays are index-based</li>
+                <li>What if we don't know the size when creating it? </li>
+                <li>Maybe 1 user books all the tickets, Having an array with si ze 50, with only 1 element inside is not efficient</li>
+                <li>A list that is more dynamic in size, Where we don't need to specify a size at the beginning, Automatically expands when new elements are added</li>
+                <li>slice is an abstraction of an array</li>
+                <li>Slices are more flexible and powerful: variable-length oor get an sub-array of its own </li>
+                <li>Slices are also index-based and have a size, but is resized when needed</li>
+                <li>Adds the elements at the end of the slice</li>
+                <li>Grows the slice if a greater capacity is needed and returns the updated slice value</li>
+            </ol>
         </li>
-    </ol>
+      </ol>
 </body>
 
 </html>
