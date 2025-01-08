@@ -184,8 +184,10 @@
                 <li>Only the same data type can be stored</li>
                 <li>Adding and accessing elements by their index (position), arrays are index-based</li>
                 <li>What if we don't know the size when creating it? </li>
-                <li>Maybe 1 user books all the tickets, Having an array with si ze 50, with only 1 element inside is not efficient</li>
-                <li>A list that is more dynamic in size, Where we don't need to specify a size at the beginning, Automatically expands when new elements are added</li>
+                <li>Maybe 1 user books all the tickets, Having an array with si ze 50, with only 1 element inside is not
+                    efficient</li>
+                <li>A list that is more dynamic in size, Where we don't need to specify a size at the beginning,
+                    Automatically expands when new elements are added</li>
                 <li>slice is an abstraction of an array</li>
                 <li>Slices are more flexible and powerful: variable-length oor get an sub-array of its own </li>
                 <li>Slices are also index-based and have a size, but is resized when needed</li>
@@ -199,14 +201,17 @@
                 <li>In general, languages provide various control structures to control the applications flow</li>
                 <li>A loop statement allows us to execute code multiple times, in a loop. </li>
                 <li>Loops are simplified in Go</li>
-                <li>You only have the "for loop", there are no while loop, do-while loop, for-each loop  </li>
+                <li>You only have the "for loop", there are no while loop, do-while loop, for-each loop </li>
                 <li>Infinity loop for { }</li>
-                <li>for-each loop, Interating over a list, For each element in the list, we want to execute the same logic</li>
+                <li>for-each loop, Interating over a list, For each element in the list, we want to execute the same
+                    logic</li>
                 <li>range iterates over elements for different data structures (so not only arrays and slices)</li>
                 <li>For arrays and slices, range provides the index and value of each element</li>
                 <li>for index, booking := range bookings </li>
-                <li>string.Fields() Splits the string with white space as separator, and returns a slice with the split elements</li>
-                <li>This loop ends when iterated over all elements of the bookings list, Then going to the statement of our program</li>
+                <li>string.Fields() Splits the string with white space as separator, and returns a slice with the split
+                    elements</li>
+                <li>This loop ends when iterated over all elements of the bookings list, Then going to the statement of
+                    our program</li>
                 <li>Blank Identifies: To ignore a variable you don't want to use</li>
                 <li>So with Go you need to make unused variables explicit</li>
             </ol>
@@ -217,8 +222,10 @@
                 <li>COnditionals: Expression that evaluate to either true or false</li>
                 <li>== Compars two strings</li>
                 <li>!= Not equal</li>
-                <li>< Less than</li>
-                <li><= Less than equal to </li>
+                <li>
+                    < Less than</li>
+                <li>
+                    <= Less than equal to </li>
                 <li>> Greater than</li>
                 <li>>= Greater than equal to </li>
                 <li>Boolean Data type, Boolean can only have 2 values, TRUE or FALSE</li>
@@ -226,7 +233,8 @@
                 <li>And continues with the code right after the for loop (in our case we don't have any code)</li>
                 <li>= for assigning values to variables</li>
                 <li>== for comparing of 2 values</li>
-                <li>Instead of giving 50 tickets what will happen if user give more than 50, Remaining tickets not correct, Application didn't end</li>
+                <li>Instead of giving 50 tickets what will happen if user give more than 50, Remaining tickets not
+                    correct, Application didn't end</li>
                 <li>Causes loop to skip the ramainder of its body</li>
                 <li>Add immediately retesting its condition (in our infinite loop our condition is always true)</li>
                 <li>You can have unlimited 'else if' statements</li>
@@ -235,7 +243,21 @@
                 <li>Infinite loop = A loop that repeats endlessly as the condition is always true</li>
             </ol>
         </li>
-      </ol>
+        <li><strong>User Input Validation</strong>
+            <ol> 
+                <li>We need to expect that and make sure our application can handle bad user input</li>
+                <li>len() Built-in function returning length of variable, according to its type.</li>
+                <li>Arrays & Slices: Size of the list (number of elements)</li>
+                <li>Strings: The number of characters</li>
+                <li>Logical operator - && Called logical AND operator</li>
+                <li>Both conditions must be true, for the whole expression to be true</li>
+                <li>Needs to enter a valid email format containing @ sign</li>
+                <li>Need to enter correct number of tickets (positive + greater than 0)</li>
+                <li> Logical Operator - ||: Called logical OR operator, Any one of the conditions must be true, for the whole expression to be true.</li>
+                <li>Logical Operator - ! called logical NOT operator, Reverses the boolean value. e.g. if a condition is true, it makes it false</li>
+            </ol>
+        </li>
+    </ol>
 </body>
 
 </html>
