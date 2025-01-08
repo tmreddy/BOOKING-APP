@@ -273,6 +273,48 @@
                 </li>
             </ol>
         </li>
+        <li><strong>Function in Go</strong>
+            <ol>
+                <li>Encapsulate code into own container (= function). Which logically belong together!</li>
+                <li>Like variable name, you should give a function a descriptive name</li>
+                <li>Call the function by its name, whenever you want to axecute this block of code</li>
+                <li>Every program has at least one function, which is the main() function</li>
+                <li>Function is only executed, when "Called"!</li>
+                <li>You can call a function as many times you want</li>
+                <li>So a function is also used to reduce code duplication</li>
+            </ol>
+        </li>
+        <li><strong>Function Parameters</strong>
+            <ol>
+                <li>Information can be paassed into functions as parameters   </li>
+                <li>parameters are also called arguments</li>
+            </ol>
+        </li>
+        <li><strong>Returing values from a function</strong>
+            <ol>
+                <li>A function can return data as a result</li>
+                <li>So a function can take an input and return an output</li>
+                <li>In Go you have to define the input and output parameters including its type explicitly</li>
+                <li>Most of the programming languages doesn't support returing multiple values from a function</li>
+                <li>A Go function can return multiple values</li>
+                <li>To return multiple values from a function we need put the data types in ()</li>
+                <li>e.g func test(input string) string {return "output"}</li>
+                <li>e.g func test(input string) (string, bool) { return "output", true}</li>
+                <li>Make code cleaner with package level variables</li>
+                <li>Define at the top outside all functions</li>
+                <li>They can be accessed inside any of the functions</li>
+                <li>And in all files, which are in the same package</li>
+                <li>Package level variables cannot be define using suger quotes</li>
+                <li>Best Practice: Define variables as "local" as possible</li>
+                <li>Local variables: Define inside a function or a block, They can be accessed only inside that function or block of code. </li>
+            </ol>
+        </li>
+        <li><strong>More use cases of functions</strong>
+        <ol>
+            <li>Group logic that belongs together</li>
+            <li>Reuse logic and so reducing duplication of code</li>
+        </ol>
+        </li>
     </ol>
 </body>
 
