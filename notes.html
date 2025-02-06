@@ -117,7 +117,7 @@
                 <li>Make your code more robust, reduce the likelihood of errors</li>
                 <li>Helps developers to catch type mismatchs sooner (at compile time)</li>
                 <li>To declare a variable with datatype syntax is var variablename datatype</li>
-                <li>Dicover mistakes at compile time, NOT at runtime</li>
+                <li>Discover mistakes at compile time, NOT at runtime</li>
                 <li>%v is for variable, %T is for TYPE of the variable is</li>
                 <li>We have different int types </li>
                 <ol>
@@ -139,7 +139,7 @@
         </li>
         <li><strong>"Syntatic Sugar" in Programming</strong>
             <ol>
-                <li>A term to describe a feature in a language that let's your do smth more easily</li>
+                <li>A term to describe a feature in a language that let's your do some thing more easily</li>
                 <li>Makes the language "sweeter" for human use</li>
                 <li>But does't add any new functioality that it didn't already have</li>
                 <li>With suger cotated syntax := we cannot declare constants, and also doesn't apply if you want to
@@ -169,7 +169,7 @@
             </ol>
         </li>
         <li>In java script the order of declaration and usage does't matter, in GO it matters we can use a variable
-            before declartion.< /li>
+            before declartion.</li>
         <li><strong>Arrays & Slices in Go</strong>
             <ol>
                 <li>We want to store the entered user data in some kind of a list.</li>
@@ -184,12 +184,12 @@
                 <li>Only the same data type can be stored</li>
                 <li>Adding and accessing elements by their index (position), arrays are index-based</li>
                 <li>What if we don't know the size when creating it? </li>
-                <li>Maybe 1 user books all the tickets, Having an array with si ze 50, with only 1 element inside is not
+                <li>Maybe 1 user books all the tickets, Having an array with size 50, with only 1 element inside is not
                     efficient</li>
                 <li>A list that is more dynamic in size, Where we don't need to specify a size at the beginning,
                     Automatically expands when new elements are added</li>
                 <li>slice is an abstraction of an array</li>
-                <li>Slices are more flexible and powerful: variable-length oor get an sub-array of its own </li>
+                <li>Slices are more flexible and powerful: variable-length or get an sub-array of its own </li>
                 <li>Slices are also index-based and have a size, but is resized when needed</li>
                 <li>Adds the elements at the end of the slice</li>
                 <li>Grows the slice if a greater capacity is needed and returns the updated slice value</li>
@@ -269,15 +269,14 @@
                     default:
                         some code
                     }</li>
-                <li>Switch statement is a shorter way to write a sequence of if - else statements</li>
-                </li>
+                <li>Switch statement is a shorter way to write a sequence of if - else statements
             </ol>
         </li>
         <li><strong>Function in Go</strong>
             <ol>
                 <li>Encapsulate code into own container (= function). Which logically belong together!</li>
                 <li>Like variable name, you should give a function a descriptive name</li>
-                <li>Call the function by its name, whenever you want to axecute this block of code</li>
+                <li>Call the function by its name, whenever you want to execute this block of code</li>
                 <li>Every program has at least one function, which is the main() function</li>
                 <li>Function is only executed, when "Called"!</li>
                 <li>You can call a function as many times you want</li>
@@ -335,9 +334,9 @@
                 <li>Organize your app</li>
                 <li>Logically group your code</li>
                 <li>To create new package we need to create a folder, e.g. create helper folder and move the helper.go to this folder. Change the package name from main to helper in helper.go file</li>
-                <li>Exporing a variable: Make it available for all packages in the app </li>
+                <li>Exporting a variable: Make it available for all packages in the app </li>
                 <li>Capitalize first letter ValidateUserInput</li>
-                <li>for importing a package just my giving import "helper" doesn't work as go will be looing for this package in its libr ary. Insted we need to give the module name which is present in the go.mod e.g. BOOKIN-APP/helper, this will work</li>
+                <li>for importing a package just my giving import "helper" doesn't work as go will be looing for this package in its library. Insted we need to give the module name which is present in the go.mod e.g. BOOKIN-APP/helper, this will work</li>
                 <li>To call fuction from another package we need ti give packagename.functionname</li>
                 <li>You can export: variable, functions, constants, types</li>
             </ol>
@@ -451,6 +450,196 @@ type struct {
                     <li>OS threads are managed by kernel, are hardware dependent, cost of these threads are higher, Higher start up time, have no easy communication between threads (receiving and sending data)  </li>
                     <li>GoRoutines has a concept of channels a build in functionality for goroutines to talk with one another </li>
                 </ol>
+            </ol>
+        </li>
+        <li><strong>Debugging Go with the Delve CLI</strong>
+            <ol>
+                <li>dlv debug main [package name]</li>
+                <li>help</li>
+                <li>break b</li>
+                <li>continue c</li>
+                <li>next n</li>
+                <li>step s</li>
+                <li>stepout so</li>
+                <li>print p</li>
+                <li>args</li>
+                <li>locals</li>
+                <li>list 1</li>
+                <li>exit, quit q</li>
+                <li>break [functionname]</li>
+                <li>break [file_nmae]:[line_number]</li>
+                <li>dlv debug main.go</li>
+                <li>break main.go:19</li>
+                <li>condition 1 l == len(nums)</li>
+                <li>continue</li>
+                <li>print i</li>
+                <li>print len(nums)</li>
+                <li>print nums[i]</li>
+                <li>exit</li>
+            </ol>
+        </li>
+        <li><strong>Unit test cases</strong>
+            <ol>
+                <li>Go comes with many tooling out of box, including built-in support for unit testing.</li>
+                <li>Any file that has name ending _test.go is considered a test file by the go tooling.</li>
+                <li>Within these files any function starte with Test is considered as a test function.</li>
+                <li>The test functions take the shape <code>func Testxxx(t *testing.T) {}</code></li>
+                <li><code>
+                    import "testing"
+                    go test ./step*
+                    go test -v ./step* v for verbose
+                </code></li>
+                <li>At the core tests can either pass or fail. By default a test function will pass. It is upto the developer to write test cdoe that determines when a test should fail.</li>
+                <li>You do so by calling one of the several methods available on the t *testing T struct that passed by your function, such as .Fail(), .Error()</li>
+                <li>
+                    <table border="1">
+                        <thead align="center">
+                            <th>Method</th>
+                            <th>Description</th>
+                        </thead>
+                        <tbody align="margin-left">
+                            <tr>
+                                <td>t.Fail()</td>
+                                <td>Marks the test as failed, but continues with the rest of the test function.</td>
+                            </tr>
+                            <tr>
+                                <td>t.FailNow()</td>
+                                <td>Marks the test as failed and stops the execution of the current test function.</td>
+                            </tr>
+                            <tr>
+                                <td>t.Error(args ...any)</td>
+                                <td>Logs the "args" parameters to the console and then calls .Fail()</td>
+                            </tr>
+                            <tr>
+                                <td>t.Fatal(args ...any)</td>
+                                <td>Logs the "args" parameters to the console and then calls .FailNow()</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li><strong>Test case structure</strong>
+                    <ol>
+                        <li>Arrange / Act / Assert</li>
+                        <li>Arrange: set up the right pre conditions for your test cases</li>
+                        <li>Act: Execute the code you want to test</li>
+                        <li>Assert: Check the results and validate your assumptions about the outcome.</li>
+                        <li>Alternatively this structure is referred to as Given/When/Then as in</li>
+                        <li>given &lt;these parameters&gt; when &lt;I execute this function&gt;, then &lt;I expect the following coutcomes&gt;  </li>
+                    </ol>
+                </li>
+                <li><strong>Dealing with failing test cases</strong>
+                    <ol>
+                        <li>t.Errorf("wrong values for 'area', expected %v, got %v", o, area)</li>
+                        <li>t.Error("Expected an error")</li>
+                        <li>These methods are analogous to the methods fmt.printf() and fmt.print(), they mark the test as failed and prints the provided error message to the test output.</li>
+                        <li>To a message without failing the test, you will call either t.log() or t.logf(), they work in a similar fashion as the methods you've seen, without marking the test as failed.</li>
+                    </ol>
+                </li>
+                <li><strong>Adding structure to your tests</strong>
+                    <ol>
+                        <li><strong> Preparation and cleanup </strong>
+                            If you start noticing that you're writing a lot of recurring boilerplate for each test, or if you need to do certain cleanup tasks after all the tests in a file have run, it may be time to extract that code in one central location. Remember that we said Go automatically recognizes and executes any function starting with Test as a test case? Well, there is one exception; if you add a function func TestMain(m *testing.M), then only that function is executed, and no others. You would use it like this:</li>
+                        <li><code>
+                            func TestMain(m *testing.M) {
+                            log.Println("Preparation")
+                            exitVal := m.Run()
+                            log.Println("Cleanup")
+                        
+                            os.Exit(exitVal) // Required to indicate whether the test run passed or failed
+                        }</code></li>
+                        <li>The magic is in the call to m.Run(); this executes all the tests in your current package. But now that you trigger the tests manually from inside TestMain, you are free to any preparation or cleanup as you see fit.</li>
+                        <li>Even with the simple test cases in step4/calculator_test.go, you can see that a calculator is initialized in every test. Sometimes, that's a good thing; if the calculator were stateful, i.e. that the values of its members changed during execution, you would need a new instance every single time to avoid one test from affecting the tests that came after it. But in some cases, like in this example, it is safe to instantiate the calculator only once.</li>
+                        <li>You didn't save a lot in terms of lines of code, but you did deduplicate boilerplate code. This can help with readability and maintainability of your tests. As you write more tests and your tests grow more complex, the benefits will increase.</li>
+                        <li><strong>Subtests </strong>Speaking of writing more tests: you'll start noticing that the amount of test code grows quickly. It is not uncommon for test code to outgrow the code it's testing. This is generally not a problem, because test code tends to be simpler than the code under test. However, at one point or another, you'll feel the need to bring more structure to your tests, to keep the test code as well as the test output easily understandable.</li>
+                        <li>Let's take another look at step4/calculator_test.go. You may notice that these tests check multiple distinct methods, and that some methods are even covered by multiple tests. However, the structure of the tests and their output does not reflect this. What this test file lacks is some structure.</li>
+                        <li>f you could group the tests according to the function they're testing, the readability of the test file and the test output would improve a lot. Fortunately, Go makes it easy to do so, by letting you define subtests. You can define subtests by inserting calls to t.Run() inside your test functions, so that</li>
+                        <li><code>
+                            func TestMyFunctionWithValidInput(t *testing.T) {
+                                // arrange
+                                result := MyFunction("valid input") // act
+                                // assert
+                            }
+                            becomes
+                            func TestMyFunction(t *testing.T) {
+                                t.Run("WithValidInput", func (t *testing.T) {
+                                    // arrange
+                                    result := MyFunction("valid input") // act
+                                    // assert
+                                })
+                            }
+                        </code></li>
+                        <li>This gives you an easy way to group related tests, and allows you to write any initialization code for the tests in each group only once (instead of repeating it in every test).</li>
+                        <li>It is possible to nest subtests further, if needed, by nesting calls to t.Run() inside another t.Run(): In the example, the Divide method has two tests: "DivideValid" and "DivideByZero". Using nested subtests, you can group these two tests as well.</li>
+                        <li>Use what you have learned above to restructure your tests further, so that they have the following structure:
+                            TestCalculator
+                            Add
+                            Subtract
+                            Multiply
+                            Divide
+                            Valid
+                            ByZero</li>
+                    </ol>
+                </li>
+                <li><strong>Controlling test execution</strong>
+                
+                    <ol>
+                        <li>Now that we have covered the basics of creating and structuring unit tests in Go, let's look at ways to control how your tests are executed. In this step, you're using a slightly adjusted version of the calculator code; you'll find it in step5/calculator.go.</li>
+                        <li><strong>Skipping tests </strong>There can be situations in which you do not want to run all tests. Examples include (but are not limited to):
+
+                            during development, if you want to focus on one or more specific tests
+                            if a test is not finished
+                            if a certain condition is met
+                            in different environments, such as in your CI environment vs locally</li>
+                        <li>Go provides a few ways to control exactly which tests are executed. We will look at a few of them.
+
+                            The simplest way to skip execution of a test is by using one of the following methods:</li>
+                        <li>
+                            <table border="1">
+                                <thead>
+                                    <th>Method</th>
+                                    <th>Description</th>
+                                </thead>
+                                <tr>
+                                    <td>t.SkipNow()</td>
+                                    <td>Marks the test as 'skipped' and stops execution of the current test function.</td>
+                                </tr>
+                                <tr>
+                                    <td>t.Skip(args...any)</td>
+                                    <td>Logs the 'args' parameters to the console and then calls .SkipNow()</td>
+                                </tr>
+                                <tr>t.Skipf(format string, args...any)</tr>
+                                <tr>Logs the parameters to the console (similar to how fmt.Printf() works) and then calls .SkipNow()</tr>
+                            </table>
+                        </li>
+                        <li>These methods can be called at any point during execution of your test, but if the test was already marked as failed earlier in the test, it will still be marked as failed in the output.</li>
+                        <li>Skipping tests using the methods listed above can be useful, but the downside is that you actually have to adjust the test functions (by introducing these method calls). If you simply want to reduce the set of executed tests during development, you will have to resort to the command line. There are several options that you can pass to the go test command to select specific tests.
+
+                            To zoom in on a particular package, you can pass the package path instead of ./..., e.g.: go test getting-started-with-go-unit-testing/step5</li>
+                        <li>To run specific tests matching a specific name, you can pass -run `MyFunction`. This will run all tests that contain the text MyFunction in their function name.</li>
+                        <li>Actually, the parameter after -run is a regular expression, but explaining regular expressions is beyond the scope of this lab.</li>
+                        <li>Both techniques can be combined to zoom in on specific tests with surgical precision.</li>
+                        <li><strong>Running tests in parallel </strong>Although unit tests are generally fast, it can still take a while to execute all tests in a large code base. Luckily, Go has two tricks up its sleeve to speed things up:
+
+                            It skip tests for code that has not changed; and
+                            Tests in different packages are executed in parallel</li>
+                        <li>That said, Go does not run tests within a package in parallel by default. The reason for this is that it's not uncommon for tests within a package to influence each other. It is up to you as the developer to mark tests within a package as safe for manual execution. To do so, the t *testing.T struct has one more useful method: t.Parallel(). This method must be called in each test that you want to run in parallel, preferably at the start of the test.
+
+                            You may have noticed that this version of the calculator code is slightly different. In this version, the calculator keeps track of the last calculated value, and operations ('Add', 'Subtract', etc.) only require one parameter. We pretend that its methods perform heavy calculations by calling time.Sleep(). Lastly, it now has a method Reset(), which initializes the calculator's state to the provided value. This method gets called at the start of each of the tests, to make sure it operates on a known state.</li>
+                        <li>Because all tests share a single instance of the Calculator struct, and because the tests are no longer executed one by one, they started interfering with each other. Between the moment that one test resets the calculator and runs the operation, another test function has changed the current value of the calculator, leading to a different result than we expected. This is a case where it would have been better to initialize a new constructor within every test, instead of a single calculator within TestMain().</li>
+                        <li>Congratulations on completing your first steps towards learning how to write effective unit tests using Go. You now have all the tools you need to start writing unit tests to your own applications. As you practice more, writing tests will hopefully become a habit -- second nature maybe, even.
+
+                            When you're ready to dive deeper, there is plenty more to explore. You'll find a range of additional topics, along with links to relevant material, in the list below.
+                            
+                            The following topics are covered in the "Testing in Go" course, which is part of the "Go" path:
+                            
+                            Benchmark testing: Identify and analyze differences in performance between multiple implementations.
+                            Fuzz testing: Automate the generation of input parameters to find edge cases.
+                            Although Go comes with good testing support out-of-the-box, there are many testing libraries/frameworks that can help you become even more productive. One of the most widely known is "stretchr/testify", giving you a wide range of powerful assertions and mocking capabilities.
+                            
+                            For more background on the concept and theory of unit testing, check out the excellent "Unit Testing Fundamentals" course.</li>
+                    </ol>
+
+                </li>
             </ol>
         </li>
     </ol>
